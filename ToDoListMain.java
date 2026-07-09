@@ -42,12 +42,15 @@ public class ToDoListMain {
             System.out.println("Enter your option:");
 
                                                         
-           if (!userInput.hasNextInt()) {              // If statement to keep program from closing when an invalid option is entered.
+           if (!userInput.hasNextInt()) {              // If statement to keep program from looping or closing when an invalid option is entered.
                 System.out.println("Invalid choice! Please try again... :)");
                 option = -1;                            
             } else {
+            try {
                 option = userInput.nextInt();
-                userInput.nextLine();
+            } catch (ArithmeticException e) {
+                System.out.println("Invalid choice! Please try again... :)");
+                userInput.nextLine(); // is this line still needed?
             }
 
             switch (option) {
